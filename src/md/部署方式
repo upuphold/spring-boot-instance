@@ -1,0 +1,8 @@
+#####jar包方式
+1. mvn install
+2. java -jar "第一步打包出的jar包"
+#####war包方式
+1. SpringBootInstanceApplication上添加注解@ServletComponentScan
+2. SpringBootInstanceApplication继承SpringBootServletInitializer
+3. pom文件声明"<"packaging">"war"<"packaging">"打包方式
+4. 修改spring-boot-starter-tomcat包的scope区域为provided：表示只在编译测试时使用

@@ -1,0 +1,5 @@
+#####通过修改application.properties，修改访问的端口号和上下文路径
+ ```
+ server.port=8888
+ server.servlet.context-path=/test
+ ```

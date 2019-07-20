@@ -1,0 +1,26 @@
+#####pom增加对jsp支持
+   ```
+        <!-- servlet依赖. -->
+        <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>javax.servlet-api</artifactId>
+               
+        </dependency>
+              <dependency>
+                     <groupId>javax.servlet</groupId>
+                     <artifactId>jstl</artifactId>
+              </dependency>
+        <!-- tomcat的支持.-->
+        <dependency>
+               <groupId>org.apache.tomcat.embed</groupId>
+               <artifactId>tomcat-embed-jasper</artifactId>
+                
+        </dependency> 
+   ```
+#####在src/main/resources 目录下增加 application.properties文件，用于视图重定向jsp文件的位置
+    ```
+        spring.mvc.view.prefix=/WEB-INF/jsp/
+        spring.mvc.view.suffix=.jsp
+    ```
+#####@RestController 改为@Controller
+#####在main目录下，新建-> webapp/WEB-INF/jsp 目录

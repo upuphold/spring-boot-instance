@@ -1,0 +1,15 @@
+#####新增加一个类GlobalExceptionHandler，用于捕捉Exception异常以及其子类。捕捉到之后，把异常信息，发出异常的地址放进ModelAndView里，然后跳转到 errorPage.jsp
+ ```
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler
+	public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("exception", e);
+		modelAndView.addObject("url", request.getRequestURI());
+		modelAndView.setViewName("errorPage");
+		return modelAndView;
+	}
+}
+ ```

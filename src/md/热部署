@@ -1,0 +1,14 @@
+#####pom.xml中新增加一个依赖和一个插件
+   ```
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-devtools</artifactId>
+       <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+   </dependency>
+   ```
+   ```
+   <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+   </plugin>
+   ```
