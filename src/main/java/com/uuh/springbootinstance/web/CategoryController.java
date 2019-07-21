@@ -1,10 +1,10 @@
 package com.uuh.springbootinstance.web;
 
-import com.uuh.springbootinstance.dao.CategoryDAO;
+import com.uuh.springbootinstance.mapper.CategoryMapper;
 import com.uuh.springbootinstance.pojo.Category;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -16,15 +16,24 @@ import java.util.List;
  * Version: 1.0
  */
 @Controller
+@Slf4j
 public class CategoryController {
 
+
 	@Autowired
-	private CategoryDAO categoryDAO;
+	private CategoryMapper categoryMapper;
 
 	@RequestMapping("categoryList")
-	public String categoryList(Model model) {
-		List<Category> categories = categoryDAO.findAll();
-		model.addAttribute("categories", categories);
-		return "categoryList";
+	public String categoryList() {
+		List<Category> categories = categoryMapper.findAll();
+		return categories.toString();
 	}
+
+//	@RequestMapping("categoryList")
+//	public String categoryList(Model model) {
+//		List<Category> categories = categoryMapper.findAll();
+//		log.info("数据有：{}",categories);
+//		model.addAttribute("categories", categories);
+//		return "categoryList";
+//	}
 }

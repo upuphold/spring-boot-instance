@@ -1,0 +1,52 @@
+#####pom里添加依赖
+```
+<!-- mybatis -->
+<dependency>
+	<groupId>org.mybatis.spring.boot</groupId>
+	<artifactId>mybatis-spring-boot-starter</artifactId>
+	<version>1.1.1</version>
+</dependency>
+<!-- mysql -->
+<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.21</version>
+</dependency>
+```
+#####application.properties中配置数据库连接参数
+```
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/uuh?characterEncoding=UTF-8
+spring.datasource.username=root
+spring.datasource.password=123456
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+```
+#####增加一个包：com.uuh.springbootinstance.pojo，然后创建实体类Category
+```
+public class Category {
+  
+    private int id;
+      
+    private String name;
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+      
+}
+```
+#####增加一个包：com.uuh.springbootinstance.mapper，然后创建接口CategoryMapper。使用注解@Mapper 表示这是一个Mybatis Mapper接口。使用@Select注解表示调用findAll方法会去执行对应的sql语句。
+```$xslt
+@Mapper
+public interface CategoryMapper {
+ 
+    List<Category> findAll();
+}
+```
