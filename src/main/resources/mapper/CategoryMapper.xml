@@ -6,5 +6,5 @@
 <mapper namespace="com.uuh.springbootinstance.mapper.CategoryMapper">
     <select id="findAll" resultType="com.uuh.springbootinstance.pojo.Category">
             select * from category_
-        </select>
+    </select>
 </mapper>

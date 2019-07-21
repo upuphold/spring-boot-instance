@@ -14,4 +14,22 @@
             <scope>test</scope>
         </dependency>
 ```
-#####
+#####新建测试类，添加测试注解
+```$xslt
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringBootInstanceApplication.class)
+public class TestJPA {
+
+	@Autowired
+	private CategoryMapper categoryMapper;
+
+	@Test
+	public void test() {
+		List<Category> categories = categoryMapper.findAll();
+		for (Category category : categories) {
+			System.out.println(category.toString());
+		}
+
+	}
+}
+```

@@ -7,10 +7,10 @@
         <td>id</td>
         <td>name</td>
     </tr>
-    <c:forEach items="${categories}" var="c" varStatus="st">
+    <c:forEach items="${cs}" var="cs" varStatus="st">
         <tr>
-            <td>${categories.id}</td>
-            <td>${categories.name}</td>
+            <td>${cs.id}</td>
+            <td>${cs.name}</td>
         </tr>
     </c:forEach>
 </table>

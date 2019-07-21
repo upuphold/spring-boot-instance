@@ -2,8 +2,6 @@ package com.uuh.springbootinstance;
 
 import com.uuh.springbootinstance.mapper.CategoryMapper;
 import com.uuh.springbootinstance.pojo.Category;
-import com.uuh.springbootinstance.web.CategoryController;
-import javafx.application.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,7 @@ import java.util.List;
  * Version: 1.0
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = SpringBootInstanceApplication.class)
 public class TestJPA {
 
 	@Autowired
