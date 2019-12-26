@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: demo
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  redis:
+    database: 0
+    port: 6379
+    host: 10.0.93.138
+    password: redis123
+    # redis连接池
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 10
+        min-idle: 1
+        max-wait: -1
+
+
+  datasource:
+    url: jdbc:mysql://20.168.1.109:3306/csap?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true'
+    data-username: hydata
+    data-password: hydata
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  servlet:
+    context-path: /demo

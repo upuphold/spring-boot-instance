@@ -1,26 +1,43 @@
 package com.uuh.springbootinstance.exception;
 
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Description: 全局异常处理
- * Date: 2019年07月21日 1:50
- * Author: cg
- * Version: 1.0
+ * @author cg
+ * @description 全局异常处理
+ * @date 2019/12/20 15:32
+ * @since 1.0
  */
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler
-	public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("exception", e);
-		modelAndView.addObject("url", request.getRequestURI());
-		modelAndView.setViewName("errorPage");
-		return modelAndView;
-	}
+
+    /*返回error的json数据*/
+    @ExceptionHandler(value = MyException.class)
+    @ResponseBody
+    public ErrorInfo<String> defaultExceptionHandler(HttpServletRequest request, Exception e) throws Exception{
+        ErrorInfo<String> res = new ErrorInfo<>();
+        res.setCode(ErrorInfo.FAIL);
+        res.setMessage(e.getMessage());
+        res.setUrl(request.getRequestURI());
+        return res;
+    }
+
+
+    /*返回error页面*/
+/*    @ExceptionHandler(value = Exception.class)
+    public String defaultExceptionHandler(HttpServletRequest request, Exception e) {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("url", request.getRequestURI());
+        modelMap.addAttribute("exception", e.getMessage());
+        return "error";
+    }*/
+
 }
